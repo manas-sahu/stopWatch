@@ -5,7 +5,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
-  /* overflow: hidden; */
 }
 
 body {
@@ -13,7 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-color: var(--bg-color);
   background-image: linear-gradient(180deg, var(--bg-color) 0%, #4f3a95 100%);
 }
@@ -26,8 +25,8 @@ body {
   align-items: center;
 }
 .clock {
-  width: 360px;
-  height: 360px;
+  width: 320px;
+  height: 320px;
   border: 10px solid #091921;
   border-radius: 50%;
   box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
@@ -35,10 +34,12 @@ body {
     inset 0 15px 15px rgba(0, 0, 0, 0.3);
   position: relative;
 }
-.progressRing{
-    position: absolute;
-    top: -20px;
-    left: -20px;
+
+/* set circle to overlap with the Clock border */
+.progressRing {
+  position: absolute;
+  top: -20px;
+  left: -20px;
 }
 
 .clock::after {
@@ -53,26 +54,28 @@ body {
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
+
 .spinnerGlobe {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    color: #e6d40a;
-    text-align: center;
-    font-weight: 900;
-    font-size: 1.5rem;
-    z-index: 10;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: #e6d40a;
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.5rem;
+  z-index: 10;
 }
+
+/* A circle to append on top of the clock hand */
 .spinnerGlobe .cycle {
-    width: 50px;
-    height: 50px;
-    background-color: #e6d40a;
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    border-radius: 50%;
-    
+  width: 50px;
+  height: 50px;
+  background-color: #e6d40a;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
 }
 
 .clock .number {
@@ -84,6 +87,8 @@ body {
   font-size: 1.5rem;
   transform: rotate(var(--rotation)) translateY(-10px);
 }
+
+/* To generate hour marks*/
 
 .clock .number1 {
   --rotation: 30deg;
@@ -133,12 +138,6 @@ body {
   border-radius: 6px 6px 0 0;
   transform: translateX(-50%);
   z-index: 10;
-  /* animation: moveSmooth 60s linear infinite forwards; */
-  /* animation: name duration timing-function delay normal direction fill-mode; */
-  /* transition: transform 1s linear; */
-}
-.do-animation {
-    animation: moveSmooth 60s linear infinite forwards;
 }
 
 .timer {
@@ -152,19 +151,14 @@ body {
   font-size: 1.5rem;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 .operation .start {
-    font-weight: 600;
+  font-weight: 600;
   cursor: pointer;
 }
 .operation .reset {
-    font-weight: 600;
+  font-weight: 600;
   cursor: pointer;
-}
-
-@keyframes moveSmooth { 
-    100% {
-    transform: rotateZ(360deg);
-  }
 }
